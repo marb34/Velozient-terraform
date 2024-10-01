@@ -3,11 +3,8 @@ resource "azurerm_linux_virtual_machine_scale_set" "web_vmss" {
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
   upgrade_mode        = "Automatic"
-  sku {
-    name     = "Standard_DS1_v2"
-    capacity = 2
-    tier     = "Standard"
-  }
+  sku      = "Standard_DS1_v2"
+  instances = 2
 
   network_interface {
     name    = "web-nic"
